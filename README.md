@@ -92,8 +92,8 @@ docker run -it -p 5901:5901 -p 6080:6080 xfce-chrome-selenium
 
 3. **Access the Desktop**
 
-   * **VNC Viewer:** Connect to `localhost:5901` with password `123456`.
-   * **Browser:** Open `http://localhost:6080/vnc.html`.
+   * **VNC Viewer:** Connect to `<ip_address>:5901` with password `123456`.
+   * **Browser:** Open `http://<ip_address>:6080/vnc.html`.
 
 4. **Run Selenium Scripts**
 
