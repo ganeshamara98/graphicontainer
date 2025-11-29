@@ -88,21 +88,23 @@ RUN pip3 install selenium
 # ------------------------------------------------------------------------------
 # Expose ports for VNC and noVNC access
 # ------------------------------------------------------------------------------
-EXPOSE 5901  # VNC server port
-EXPOSE 6080  # noVNC web interface port
+# VNC server port
+EXPOSE 5901
+# noVNC web interface port
+EXPOSE 6080
 
 # ------------------------------------------------------------------------------
 # Start XFCE desktop with VNC and noVNC
 # ------------------------------------------------------------------------------
     # 1 Create VNC config directory \
-    # 2 Set VNC password to '123456' and save it \
+    # 2 Set VNC password to 'nuvoretail-poc' and save it \
     # 3 Secure VNC password file \
     # 4 Start VNC server with display :1, 1920x1080 resolution, 24-bit color \
     # 5 Start noVNC to proxy VNC to web browser on port 6080 \
     # 6 Keep the container running indefinitely \
 CMD ["bash", "-c", "\
     mkdir -p ~/.vnc && \
-    echo '123456' | vncpasswd -f > ~/.vnc/passwd && \
+    echo 'nuvoretail-poc' | vncpasswd -f > ~/.vnc/passwd && \
     chmod 600 ~/.vnc/passwd && \
     vncserver :1 -geometry 1920x1080 -depth 24 && \
     websockify --web=/usr/share/novnc/ 6080 localhost:5901 & \
